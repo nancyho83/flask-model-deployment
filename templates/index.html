@@ -1,23 +1,19 @@
 <html>
   <head>
-    <title>First Flask app</title>
+    <title>First Flask App</title>
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
   </head>
-  <!--adding custom style tag called yellow-->
-  <style>
-    .yellow {
-      background-color: yellow
-    }
-  </style>
   <body>
-    <h1>User Input</h1>
-    <form action="/" method="POST">
-      <textarea name="user_input"></textarea>
-      <input type="submit" value="Click here">
-    </form>
-    <br></br>
-    {% if user_output %}
-      <h1>User Output</h1>
-      <span class="yellow">{{user_output}}</span>
-    {% endif %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">My Awesome Capstone Project</h1>
+        <p>
+          Some cool content will go here
+        </p>
+        <p>
+          <a href="#" class="btn btn-primary btn-lg">A button</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>

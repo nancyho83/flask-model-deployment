@@ -1,31 +1,32 @@
-from flask import Flask, render_template, request
-from time import strftime
-import time
+from flask import Flask, send_from_directory, render_template, request, abort
 from waitress import serve
+from models.wine_predictor import predict_wine
 
 app = Flask(__name__, static_url_path="/static")
 
 @app.route("/")
 def index():
     """Return the main page."""
-    time_str = strftime("%m/%d/%Y %H:%M")
-    print(time_str)
-    restaurants = ["Din Tai Fung", "Rocco's", "Chipotle"]
-    return render_template("index.html", time_info=time_str, restaurants=restaurants)
+    return send_from_directory("static", "index.html")
 
 @app.route("/get_results", methods=["POST"])
 def get_results():
+    """ Predict the class of wine based on the inputs. """
     data = request.form
     print(data)
-    # user_number = int(data["number"])
-    # user_number_doubled = user_number * 2
 
-    user_id = data["user"]
-    answer = should_make_transaction(user_id)
-    return render_template("results.html", answer=answer, user_id=user_id)
+    expected_features = ("Alcohol", "Malic acid", "Ash", "Alcalinity of ash",
+                         "Magnesium", "Total phenols", "Flavanoids", "Nonflavanoid phenols",
+                         "Proanthocyanins", "Color intensity", "Hue",
+                         "OD280/OD315 of diluted wines", "Proline")
 
-def should_make_transaction(user_id):
-    return False
+    if data and all(feature in data for feature in expected_features):
+        # Convert the dict of fields into a list
+        test_value = [float(data[feature]) for feature in expected_features]
+        predicted_class = predict_wine(test_value)
+        return render_template("results.html", predicted_class=predicted_class)
+    else:
+        return abort(400)
 
 if __name__ == "__main__":
     serve(app, host='0.0.0.0', port=5000)

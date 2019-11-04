@@ -5,12 +5,10 @@
     <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 </head>
 <body>
-    {% if answer == True %}
-        For user {{user_id}}, we predict that they should make a transaction
-    {% else %}
-        For user {{user_id}}, we predict that they should not make a transaction
-    {% endif %}
+    We predict that this wine is from class {{ predicted_class }}
     <br>
+
+    <img src="{{ url_for('static', filename='upward_sloping_chart.png') }}" alt="">
 
     <a href="/">Go back home</a>
 </body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>First Flask App Results</title>
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body>
+    {% if answer == True %}
+        For user {{user_id}}, we predict that they should make a transaction
+    {% else %}
+        For user {{user_id}}, we predict that they should not make a transaction
+    {% endif %}
+    <br>
+
+    <a href="/">Go back home</a>
+</body>
+</html>

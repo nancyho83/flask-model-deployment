@@ -28,7 +28,7 @@ conda activate flask-env
 
 You will likely need to install additional packages to support your deployment, e.g. `scikit-learn`.  With the `flask-env` activated, you can run `conda install <package-name>`.  Once you are ready to deploy, you can generate your own `requirements.txt` for reproducibility purposes with:
 ```bash
-conda list --export requirements.txt
+conda list --export > requirements.txt
 ```
 ## Running the Flask Application
 

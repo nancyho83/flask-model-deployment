@@ -10,7 +10,7 @@ def predict_wine(test_value):
 
 def load_model():
     """ Load the model from the .pickle file """
-    model_file = open("models/wine_classifier.pickle", "rb")
+    model_file = open("src/models/wine_classifier.pickle", "rb")
     loaded_model = pickle.load(model_file)
     model_file.close()
     return loaded_model

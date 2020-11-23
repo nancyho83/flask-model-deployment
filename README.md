@@ -65,11 +65,11 @@ For image classification tasks, we recommend that you display a few example imag
 
 Overall, make sure you replace the following in `static/index.html`:
 
- - [] The `<title>` (which appears in the browser tab)
- - [] The `<h1>` (what we might think of as the "title" more conventionally — the large text at the top of the page)
- - [] The `<img>` (image + caption)
- - [] The `<label>`s and `<input>`s in the form (except for the final submit button input)
- - [] The `<p>`s (paragraphs at the bottom)
+ - [ ] The `<title>` (which appears in the browser tab)
+ - [ ] The `<h1>` (what we might think of as the "title" more conventionally — the large text at the top of the page)
+ - [ ] The `<img>` (image + caption)
+ - [ ] The `<label>`s and `<input>`s in the form (except for the final submit button input)
+ - [ ] The `<p>`s (paragraphs at the bottom)
 
 ### Features: Python
 
@@ -89,9 +89,9 @@ Once you are able to submit data through the form and make a prediction without 
 
 Take a look at:
 
- - [] The `<title>`
- - [] The text describing the result
- - [] The `<img>`
+ - [ ] The `<title>`
+ - [ ] The text describing the result
+ - [ ] The `<img>`
 
 ## Live Deployment
 

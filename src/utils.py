@@ -1,25 +1,18 @@
-def validate_input(data):
-    test_value = []
-    errors = []
-    
-    EXPECTED_FEATURES = ("Alcohol", "Malic acid", "Ash", "Alcalinity of ash",
-                         "Magnesium", "Total phenols", "Flavanoids", "Nonflavanoid phenols",
-                         "Proanthocyanins", "Color intensity", "Hue",
-                         "OD280/OD315 of diluted wines", "Proline")
-    
-    if not data:
-        errors.append("Form data must not be empty")
-    else:
-        for feature in EXPECTED_FEATURES:
-            if feature not in data:
-                errors.append(f"'{feature}' is a required field")
-            else:
-                try:
-                    test_value.append(float(data[feature]))
-                except ValueError:
-                    errors.append(f"Invalid value for field {feature}: '{data[feature]}'")
+import pandas as pd
 
-    return test_value, errors
-
-
+def extract_feature_values(data):
+    """ Given a params dict, return the values for feeding into a model"""
     
+    # Replace these features with the features for your model. They need to 
+    # correspond with the `name` attributes of the <input> tags
+    EXPECTED_FEATURES = [
+        "adult_antelope_population",
+        "annual_precipitation",
+        "winter_severity_index"
+    ]
+
+    # This assumes all inputs will be numeric. If you have categorical features
+    # that the user enters as a string, you'll want to rewrite this as a for
+    # loop that treats different features differently
+    values = [[float(data[feature]) for feature in EXPECTED_FEATURES]]
+    return pd.DataFrame(values, columns=EXPECTED_FEATURES)

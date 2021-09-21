@@ -6,7 +6,7 @@ Before attempting to modify this template to use your model, make sure you have 
 
 ### Requirements
 
-This repo uses Python 3.8.5, Flask 1.1.2, and scikit-learn 0.24.2. All python packages can be found in the `requirements.txt` file.  The requirements are in `pip` style, because this is supported by Heroku.
+This repo uses Python 3.8.1, Flask 1.1.2, and scikit-learn 0.24.2. All python packages can be found in the `requirements.txt` file.  The requirements are in `pip` style, because this is supported by Heroku.
 
 To create a new `conda` environment to use this repo, run:
 ```bash

@@ -95,7 +95,7 @@ Take a look at:
 
 ## Live Deployment
 
-You can definitely just use the web app for tech demo day, but ideally you're eventually able to publish it live so you can just send the URL to friends, family, and prospective employers.
+Right now, this app is only running locally on your computer. Ideally you're eventually able to publish this app live so you can just send a URL to friends, family, and prospective employers.
 
 We recommend using Heroku for this purpose, since it is fairly straightforward to use.  For some advanced or very large models (e.g. Spark) it may cost money, but typical scikit-learn models should be able to deploy for free.
 

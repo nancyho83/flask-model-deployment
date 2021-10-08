@@ -12,6 +12,6 @@ def get_prediction(feature_values):
 
 def un_pickle_model():
     """ Load the model from the .pkl file """
-    with open("src/models/model.pkl", "rb") as model_file:
+    with open("src/models/acnh_review_model.pkl", "rb") as model_file:
         loaded_model = pickle.load(model_file)
     return loaded_model

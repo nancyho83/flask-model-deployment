@@ -1,18 +1,23 @@
-import pandas as pd
+from nltk.corpus import stopwords
+from nltk import word_tokenize, regexp_tokenize, FreqDist
+from nltk.stem import WordNetLemmatizer
+import string
+import re
 
-def extract_feature_values(data):
-    """ Given a params dict, return the values for feeding into a model"""
+def text_processing(user_input):
+    pattern = "([a-zA-Z]+(?:'[a-z]+)?)"
+    review_text = regexp_tokenize(user_input, pattern)
+    review_text = ' '.join(review_text)
+    review_text = review_text.lower()
+
     
-    # Replace these features with the features for your model. They need to 
-    # correspond with the `name` attributes of the <input> tags
-    EXPECTED_FEATURES = [
-        "adult_antelope_population",
-        "annual_precipitation",
-        "winter_severity_index"
-    ]
-
-    # This assumes all inputs will be numeric. If you have categorical features
-    # that the user enters as a string, you'll want to rewrite this as a for
-    # loop that treats different features differently
-    values = [[float(data[feature]) for feature in EXPECTED_FEATURES]]
-    return pd.DataFrame(values, columns=EXPECTED_FEATURES)
+    stopwords_list = stopwords.words('english')
+    stopwords_list += list(string.punctuation)
+    stopwords_list += ['game', 'animal', 'crossing']
+    review_text = [w for w in review_text.split() if w not in stopwords_list]
+    
+    lemmatizer = WordNetLemmatizer()
+    review_text = [lemmatizer.lemmatize(w) for w in review_text]
+    review_text = ' '.join(review_text)
+        
+    return review_text

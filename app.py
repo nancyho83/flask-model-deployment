@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory, render_template, request, redirect, url_for
 from waitress import serve
-from src.utils import extract_feature_values
+from src.utils import text_processing
 from src.models.predictor import get_prediction
 
 app = Flask(__name__, static_url_path="/static")
@@ -15,11 +15,11 @@ def make_prediction():
     """ Use the ML model to make a prediction using the form inputs. """
 
     # Get the data from the submitted form
-    data = request.form
-    print(data) # Remove this when you're done debugging
+    user_input = request.form
+    print(user_input) # Remove this when you're done debugging
 
     # Convert the data into just a list of values to be sent to the model
-    feature_values = extract_feature_values(data)
+    feature_values = text_processing(user_input)
     print(feature_values) # Remove this when you're done debugging
 
     # Send the values to the model to get a prediction

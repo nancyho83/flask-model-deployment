@@ -1,3 +1,4 @@
+import nltk
 from nltk.corpus import stopwords
 from nltk import word_tokenize, regexp_tokenize, FreqDist
 from nltk.stem import WordNetLemmatizer

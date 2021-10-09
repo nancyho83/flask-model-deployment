@@ -15,11 +15,11 @@ def make_prediction():
     """ Use the ML model to make a prediction using the form inputs. """
 
     # Get the data from the submitted form
-    user_input = request.form
-    print(user_input) # Remove this when you're done debugging
+    data = request.form
+    print(data) # Remove this when you're done debugging
 
     # Convert the data into just a list of values to be sent to the model
-    feature_values = text_processing(user_input)
+    feature_values = text_processing(data)
     print(feature_values) # Remove this when you're done debugging
 
     # Send the values to the model to get a prediction
@@ -34,9 +34,6 @@ def show_results():
     
     # Extract the prediction from the URL params
     prediction = request.args.get("prediction")
-
-    # Round it for display purposes
-    prediction = round(float(prediction), 3)
 
     # Return the results pge
     return render_template("results.html", prediction=prediction)

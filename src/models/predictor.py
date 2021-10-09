@@ -6,7 +6,7 @@ def get_prediction(feature_values):
     loaded_model = un_pickle_model()
     
     # Model is expecting a list of lists, and returns a list of predictions
-    prediction = loaded_model.predict(feature_values)
+    prediction = loaded_model.predict([feature_values])
     # We are only making a single prediction, so return the 0-th value
     return prediction
 

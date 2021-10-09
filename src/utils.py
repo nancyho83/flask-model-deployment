@@ -6,6 +6,7 @@ import string
 import re
 
 def text_processing(user_input):
+    user_input = user_input.strip()
     pattern = "([a-zA-Z]+(?:'[a-z]+)?)"
     review_text = regexp_tokenize(user_input, pattern)
     review_text = ' '.join(review_text)

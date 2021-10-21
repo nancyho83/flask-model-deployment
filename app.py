@@ -34,6 +34,8 @@ def show_results():
     
     # Extract the prediction from the URL params
     prediction = request.args.get("prediction")
+    for result in prediction:
+        label = prediction[0]
 
     # Return the results pge
     return render_template("results.html", prediction=prediction)

@@ -11,7 +11,7 @@ def text_processing(user_input):
     review_text = ' '.join(review_text)
     review_text = review_text.lower()
     
-    stop_path = os.path.join(os.pardir, "stopwords.json")
+    stop_path = os.path.join("stopwords.json")
     file = open(stop_path, "r")
     stopwords_list = json.load(file)
     file.close()

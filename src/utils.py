@@ -1,9 +1,13 @@
+import nltk
 import json
 import os
 from nltk import word_tokenize, regexp_tokenize, FreqDist
 from nltk.stem import WordNetLemmatizer
 import string
 import re
+
+nltk_data = os.path.join("nltk_data")
+nltk.data.path.append(nltk_data)
 
 def text_processing(user_input):
     pattern = "([a-zA-Z]+(?:'[a-z]+)?)"
